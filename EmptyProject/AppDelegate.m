@@ -13,12 +13,24 @@
 @end
 
 @implementation AppDelegate
-
+@synthesize vcHome=_vcHome;
+//@synthesize navBar=_navBar;   //enable if the app needs the navigation bar
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Override point for customization after application launch.
+    self.vcHome = [[homeViewController alloc] init];
+    
+    //enable if the app needs the navigation bar
+    //self.navBar = [[UINavigationController alloc] initWithRootViewController:self.vcHome ];
+    //[self.window addSubview:self.navBar.view];
+    //[self.window setRootViewController:self.navBar];
+    
+    //disable if the app needs a navigation bar
+    [self.window setRootViewController:self.vcHome];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
